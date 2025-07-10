@@ -1,6 +1,7 @@
 import os
 import cv2
 import numpy as np
+import argparse
 import torch
 from torchvision.transforms import Compose
 import matplotlib
@@ -49,6 +50,15 @@ def process_images_with_model(input_folder, output_folder, model_path, model_ver
             from SEEDepth_v2.SEEDepth_v2_base import SEEDepth_v2_base as SEEDepth
         else:
             raise ValueError("Invalid model size. Choose 'large' or 'base'.")
+    elif model_version == "v1":
+        if model_size == "large":
+            from SEEDepth_v1.SEEDepth_v1_large import SEEDepth_v1_large as SEEDepth
+        elif model_size == "base":
+            from SEEDepth_v1.SEEDepth_v1_base import SEEDepth_v1_base as SEEDepth
+        else:
+            raise ValueError("Invalid model size. Choose 'large' or 'base'.")
+    else:
+        raise ValueError("Invalid model version. Choose 'v1' or 'v2'.")
     model = SEEDepth().to(device)
     checkpoint = torch.load(restore_ckpt, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'],strict=True)
@@ -99,13 +109,31 @@ def process_images_with_model(input_folder, output_folder, model_path, model_ver
 
     print("Image processing complete!")
 
-# --- How to use the function ---
-if __name__ == "__main__":
-    # Define your input and output folders
-    input_directory = "./input_images"
-    output_directory = "./output_preds"
-    checkpoints_directory = "/home/sanggyun/datasets/SEEDepth_checkpoints"
-    model_version = "v2" # or "v1"
-    model_size = "large" # or "base"
 
-    process_images_with_model(input_directory, output_directory, checkpoints_directory,model_version, model_size)
+if __name__ == "__main__":
+    # Create an ArgumentParser object
+    parser = argparse.ArgumentParser()
+
+    # Define command-line arguments
+    parser.add_argument('--input_directory', type=str, default='./input_images',
+                        help='Path to the folder containing input JPG images')
+    parser.add_argument('--output_directory', type=str, default='./output_preds',
+                        help='Path to the folder where prediction of disparity will be saved')
+    parser.add_argument('--checkpoints_directory', type=str, default='/home/sanggyun/datasets/SEEDepth_checkpoints',
+                        help='Path to the directory where model checkpoints are stored')
+    parser.add_argument('--model_version', type=str, default='v2', choices=['v1', 'v2'],
+                        help='Version of the model to use (default: v2, choices: v1, v2)')
+    parser.add_argument('--model_size', type=str, default='large', choices=['base', 'large'],
+                        help='Size of the model to use (default: large, choices: base, large)')
+
+    # Parse the command-line arguments
+    args = parser.parse_args()
+
+    # Call the processing function with the parsed arguments
+    process_images_with_model(
+        input_folder=args.input_directory,
+        output_folder=args.output_directory,
+        model_path=args.checkpoints_directory,
+        model_version=args.model_version,
+        model_size=args.model_size
+    )
