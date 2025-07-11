@@ -116,10 +116,10 @@ if __name__ == "__main__":
 
     # Define command-line arguments
     parser.add_argument('--input_directory', type=str, default='./input_images',
-                        help='Path to the folder containing input JPG images')
+                        help='Path to the folder containing input images')
     parser.add_argument('--output_directory', type=str, default='./output_preds',
                         help='Path to the folder where prediction of disparity will be saved')
-    parser.add_argument('--checkpoints_directory', type=str, default='/home/sanggyun/datasets/SEEDepth_checkpoints',
+    parser.add_argument('--checkpoints_directory', type=str, default='./checkpoints',
                         help='Path to the directory where model checkpoints are stored')
     parser.add_argument('--model_version', type=str, default='v2', choices=['v1', 'v2'],
                         help='Version of the model to use (default: v2, choices: v1, v2)')
