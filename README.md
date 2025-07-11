@@ -46,7 +46,7 @@ python inference.py \
 Arguments:
 
 - `--input_dir`: Path to the folder containing input images (default: `./input_images`)
-- `--output_dir`: Path to the folder where prediction of disparity will be saved (default: `./output_preds`)
+- `--output_dir`: Path to the folder where prediction of disparity will be saved (default: `./output`)
 - `--checktpoints_dir`: Path to the directory where model checkpoints are stored (default: `./checkpoints`)
 - `--model_version`: Version of the model to use (default: `v2`)
 - `--model_size`: Size of the model to use (default: `large`)

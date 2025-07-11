@@ -32,7 +32,7 @@ def process_images_with_model(input_folder, output_folder, model_path, model_ver
         print(f"Created output folder: {output_folder}")
 
     output_folder_raw = os.path.join(output_folder, "npy")
-    output_folder_normalized = os.path.join(output_folder, "normalized_images")
+    output_folder_normalized = os.path.join(output_folder, "depth")
     if not os.path.exists(output_folder_raw):
         os.makedirs(output_folder_raw)
         print(f"Created output folder: {output_folder_raw}")
@@ -75,8 +75,8 @@ def process_images_with_model(input_folder, output_folder, model_path, model_ver
     cmap = matplotlib.colormaps.get_cmap('magma')
     for filename in png_files:
         input_image_path = os.path.join(input_folder, filename)
-        output_raw_image_path = os.path.join(output_folder_raw, f"disparity_{filename.replace('.png', '.npy')}")
-        output_normalized_image_path = os.path.join(output_folder_normalized, f"disparity_{filename}")
+        output_raw_image_path = os.path.join(output_folder_raw, f"pred_{filename.replace('.png', '.npy')}")
+        output_normalized_image_path = os.path.join(output_folder_normalized, f"pred_{filename}")
 
         image = cv2.imread(input_image_path)
         if image is None:
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     # Define command-line arguments
     parser.add_argument('--input_dir', type=str, default='./input_images',
                         help='Path to the folder containing input images')
-    parser.add_argument('--output_dir', type=str, default='./output_preds',
+    parser.add_argument('--output_dir', type=str, default='./output',
                         help='Path to the folder where prediction of disparity will be saved')
     parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints',
                         help='Path to the directory where model checkpoints are stored')
@@ -131,9 +131,9 @@ if __name__ == "__main__":
 
     # Call the processing function with the parsed arguments
     process_images_with_model(
-        input_folder=args.input_directory,
-        output_folder=args.output_directory,
-        model_path=args.checkpoints_directory,
+        input_folder=args.input_dir,
+        output_folder=args.output_dir,
+        model_path=args.checkpoints_dir,
         model_version=args.model_version,
         model_size=args.model_size
     )
