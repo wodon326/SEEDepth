@@ -7,3 +7,5 @@ __pycache__
 
 checkpoints
 *.sh
+input_images
+output_preds

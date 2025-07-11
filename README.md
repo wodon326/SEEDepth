@@ -11,6 +11,7 @@ This work presents Semantic-Enhanced and Efficient Distillation for Depth Estima
 ```bash
 git clone https://github.com/wodon326/SEEDepth.git
 cd SEEDepth
+pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
 
