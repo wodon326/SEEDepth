@@ -50,3 +50,12 @@ Arguments:
 - `--checktpoints_dir`: Path to the directory where model checkpoints are stored (default: `./checkpoints`)
 - `--model_version`: Version of the model to use (default: `v2`)
 - `--model_size`: Size of the model to use (default: `large`)
+
+### Acknowledgements
+
+Thanks to these amazing open source projects:
+- [DepthAnything-V1](https://github.com/LiheYoung/Depth-Anything)
+- [DepthAnything-V2](https://github.com/DepthAnything/Depth-Anything-V2)
+- [SegmentAnything](https://github.com/facebookresearch/segment-anything)
+- [Marigold](https://github.com/prs-eth/Marigold)
+- Sample images in `input_images` are sampled from [DIODE](https://diode-dataset.org/) dataset.
