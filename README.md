@@ -35,17 +35,18 @@ To run the model, you need download each model above.
 ### Run
 
 ```python
-python infer.py \
-    --input_root_path ~/data/AsymKD/scannet_val_sampled_800_1 \
-    --input_filename_path evaluation/data_split/scannet/scannet_val_sampled_list_800_1.txt \
-    --outdir evaluation/output/scannet/briges_depth_anythingv2 \
-    --bfm_checkpoint /home/wodon326/project/BriGeS-Depth-Anything-V2/best_checkpoint/1209_3000_AsymKD_new_loss.pth \
-    --encoder vitl \
-    --infer_width 686 \
-    --infer_height 518
+python inference.py \
+    --input_dir <input-dir> \
+    --output_dir <output-dir> \
+    --checkpoints_dir <checkpoints-dir> \
+    --model_ver <v1 | v2> \
+    --model_size <base | large>
 ```
 
 Arguments:
 
-- `--model`
-- `--img_path`
+- `--input_dir`: Path to the folder containing input images (default: `./input_images`)
+- `--output_dir`: Path to the folder where prediction of disparity will be saved (default: `./output_preds`)
+- `--checktpoints_dir`: Path to the directory where model checkpoints are stored (default: `./checkpoints`)
+- `--model_version`: Version of the model to use (default: `v2`)
+- `--model_size`: ize of the model to use (default: `large`)
