@@ -34,7 +34,7 @@ To run the model, you need download each model above.
 
 ### Run
 
-```python
+```bash
 python inference.py \
     --input_dir <input-dir> \
     --output_dir <output-dir> \
