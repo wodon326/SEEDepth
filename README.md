@@ -30,7 +30,7 @@ We provide two models of varying scales for relative depth estimation based on [
 | DepthAnything-V2-Large | 335M |
 | [DepthAnything-V2-Large + SEEDepth](https://drive.google.com/uc?export=download&id=1oAyGVpQAPUd4YUCyPBfJ3mtiwnmxDuWi) | 349M |
 
-To run the model, you need download each model above.
+To run the model, you need to download each model above.
 
 ### Run
 
