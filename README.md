@@ -51,7 +51,7 @@ Arguments:
 - `--model_version`: Version of the model to use (default: `v2`)
 - `--model_size`: Size of the model to use (default: `large`)
 
-### Acknowledgements
+## Acknowledgements
 
 Thanks to these amazing open source projects:
 - [DepthAnything-V1](https://github.com/LiheYoung/Depth-Anything)
