@@ -49,4 +49,4 @@ Arguments:
 - `--output_dir`: Path to the folder where prediction of disparity will be saved (default: `./output_preds`)
 - `--checktpoints_dir`: Path to the directory where model checkpoints are stored (default: `./checkpoints`)
 - `--model_version`: Version of the model to use (default: `v2`)
-- `--model_size`: ize of the model to use (default: `large`)
+- `--model_size`: Size of the model to use (default: `large`)
