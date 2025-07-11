@@ -39,7 +39,7 @@ python inference.py \
     --input_dir <input-dir> \
     --output_dir <output-dir> \
     --checkpoints_dir <checkpoints-dir> \
-    --model_ver <v1 | v2> \
+    --model_version <v1 | v2> \
     --model_size <base | large>
 ```
 
